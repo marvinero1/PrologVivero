@@ -105,4 +105,4 @@ puedes ser cuando te lo propones").
 prueba2(X,Y):-horoscopo3(X,Y).
 
 main(Dia,Mes,Signo,Y,Z,A):-signo(Dia,Mes,Signo),prueba(Y,Signo,Z),prueba2(Signo,A).
-main2:-findall(X,Y,Z,horoscopo2(X,Y,Z)).
+main2:-findall(X,Y,Z,horoscopo2(X,Y,Z),L),write(L).
