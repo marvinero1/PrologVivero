@@ -57,12 +57,10 @@ public class Temperatura extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         resultado = new javax.swing.JLabel();
         resultado3 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jProgressBar5 = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        humedad = new javax.swing.JProgressBar();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         Timer = new javax.swing.JLabel();
@@ -77,6 +75,14 @@ public class Temperatura extends javax.swing.JFrame {
         compatible1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         onImage1 = new javax.swing.JLabel();
+        GetTemperatura1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        compatibleHumedad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(550, 600));
@@ -99,7 +105,7 @@ public class Temperatura extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell", 2, 18)); // NOI18N
         jLabel6.setText("Ingrese el nombre de la parcela:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(680, 10, 290, 40);
+        jLabel6.setBounds(680, 10, 280, 40);
 
         jButton2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jButton2.setText("Atras");
@@ -137,44 +143,41 @@ public class Temperatura extends javax.swing.JFrame {
         getContentPane().add(resultado3);
         resultado3.setBounds(230, 320, 300, 40);
 
-        jProgressBar1.setForeground(new java.awt.Color(0, 102, 0));
-        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-        jProgressBar1.setString("C°");
-        getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(60, 630, 250, 40);
+        jProgressBar5.setForeground(new java.awt.Color(0, 102, 0));
+        jProgressBar5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jProgressBar5.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        jProgressBar5.setString("C°");
+        getContentPane().add(jProgressBar5);
+        jProgressBar5.setBounds(380, 630, 250, 40);
 
-        jLabel2.setText("Temperatura");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel2.setText("Humedad");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(150, 600, 90, 20);
+        jLabel2.setBounds(470, 580, 70, 20);
 
-        jLabel5.setText("0");
+        jLabel5.setText("25");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(60, 610, 10, 14);
+        jLabel5.setBounds(120, 610, 20, 14);
 
-        jLabel7.setText("50");
+        jLabel7.setText("75");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(290, 610, 20, 14);
-        getContentPane().add(humedad);
-        humedad.setBounds(350, 630, 250, 40);
-
-        jLabel8.setText("Humedad");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(450, 610, 60, 14);
+        jLabel7.setBounds(240, 610, 20, 14);
 
         jLabel9.setText("100%");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(560, 610, 40, 14);
+        jLabel9.setBounds(600, 610, 40, 14);
 
         jLabel10.setText("0%");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(350, 610, 30, 14);
+        jLabel10.setBounds(380, 610, 30, 14);
 
         Timer.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Timer.setForeground(new java.awt.Color(0, 102, 51));
         Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Timer.setText("Temporizador");
         getContentPane().add(Timer);
-        Timer.setBounds(720, 640, 130, 60);
+        Timer.setBounds(690, 620, 130, 40);
 
         jButtonDetener.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonDetener.setForeground(new java.awt.Color(204, 0, 51));
@@ -186,7 +189,7 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonDetener);
-        jButtonDetener.setBounds(860, 660, 90, 30);
+        jButtonDetener.setBounds(840, 630, 90, 30);
 
         signo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +197,7 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(signo2);
-        signo2.setBounds(690, 60, 240, 40);
+        signo2.setBounds(700, 60, 240, 40);
 
         enviar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         enviar.setText("Enviar");
@@ -220,11 +223,11 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(compatible2);
-        compatible2.setBounds(780, 260, 80, 40);
+        compatible2.setBounds(790, 260, 80, 40);
 
-        offImage.setText("imagen");
+        offImage.setText("        Medidor");
         getContentPane().add(offImage);
-        offImage.setBounds(780, 330, 80, 150);
+        offImage.setBounds(720, 420, 80, 150);
 
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 0));
@@ -234,36 +237,82 @@ public class Temperatura extends javax.swing.JFrame {
 
         GetTemperatura.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         GetTemperatura.setForeground(new java.awt.Color(0, 153, 0));
-        GetTemperatura.setText("Temperatura Vivero");
+        GetTemperatura.setText("Humedad Vivero");
         getContentPane().add(GetTemperatura);
-        GetTemperatura.setBounds(750, 230, 140, 40);
+        GetTemperatura.setBounds(760, 290, 120, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
         jLabel3.setText("Humidificadores");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(780, 500, 110, 20);
+        jLabel3.setBounds(840, 380, 110, 20);
 
         compatible1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         compatible1.setForeground(new java.awt.Color(51, 51, 51));
-        compatible1.setText("Planta");
+        compatible1.setText("       Planta");
         compatible1.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 compatible1ComponentAdded(evt);
             }
         });
         getContentPane().add(compatible1);
-        compatible1.setBounds(780, 190, 100, 40);
+        compatible1.setBounds(740, 190, 160, 40);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 102, 51));
         jLabel12.setText("Ventiladores");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(780, 300, 80, 20);
+        jLabel12.setBounds(720, 380, 80, 20);
 
-        onImage1.setText("imagen");
+        onImage1.setText("     Medidor");
         getContentPane().add(onImage1);
-        onImage1.setBounds(790, 530, 70, 130);
+        onImage1.setBounds(850, 420, 70, 150);
+
+        GetTemperatura1.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
+        GetTemperatura1.setForeground(new java.awt.Color(0, 153, 0));
+        GetTemperatura1.setText("Temperatura Vivero");
+        getContentPane().add(GetTemperatura1);
+        GetTemperatura1.setBounds(750, 230, 140, 40);
+
+        jLabel13.setText("0");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(60, 610, 10, 14);
+
+        jLabel14.setText("50%");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(490, 610, 30, 14);
+
+        jLabel15.setText("100");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(290, 610, 30, 14);
+
+        jProgressBar2.setForeground(new java.awt.Color(0, 102, 0));
+        jProgressBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jProgressBar2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        jProgressBar2.setString("C°");
+        getContentPane().add(jProgressBar2);
+        jProgressBar2.setBounds(60, 630, 250, 40);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel16.setText("Temperatura");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(150, 580, 90, 20);
+
+        jLabel17.setText("50");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(180, 610, 20, 14);
+
+        compatibleHumedad.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        compatibleHumedad.setForeground(new java.awt.Color(51, 51, 51));
+        compatibleHumedad.setText("Humedad");
+        compatibleHumedad.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                compatibleHumedadComponentAdded(evt);
+            }
+        });
+        getContentPane().add(compatibleHumedad);
+        compatibleHumedad.setBounds(790, 330, 60, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,17 +341,28 @@ public class Temperatura extends javax.swing.JFrame {
         //t.stop();
     }//GEN-LAST:event_jButtonDetenerActionPerformed
     
-    public void calcularTmaxima(){
     
+    public void imageHumidificador(){
+        String path = "/img/on.png";                    
+        URL url = this.getClass().getResource(path);                       
+        ImageIcon icon = new ImageIcon(url);                  
+        onImage1.setIcon(icon);
     }
+    
+    public void imageHumidificadorOff(){
+        String path1 = "/img/off.png"; 
+        URL url1 = this.getClass().getResource(path1);
+        ImageIcon icon1 = new ImageIcon(url1);
+        onImage1.setIcon(icon1);
+    }
+       
+    public int temperaturaInicial = 7;
+    public int BHumedad = 69;
     
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
 
         String planta = String.valueOf(signo2.getText());       
-        
-        int temperaturaInicialMax = 25;
-        int temperaturaInicialMinima= 5;
-        
+     
         try {
             String conexion = "consult('invernadero.pl')";
             Query con = new Query(conexion);
@@ -311,35 +371,89 @@ public class Temperatura extends javax.swing.JFrame {
             String consul = "planta(X,Y,Z).";
             System.out.println("Revision de temperatura");
             String consul1 = "puedeVentilar(T1,T2,T3,T4,T5,T6).";
+            String consul2 = "puedoHumedecer(T1,T2,T3,T4).";
             Query ejecutar = new Query(consul);
             Query ejecutar1 = new Query(consul1);
+            Query ejecutar2 = new Query(consul2);
+            
             
             if (ejecutar.hasSolution()){
                 switch(signo2.getText()){
                     
-                case "lechugas":
-                    System.out.println(" Tu vivero seleccionado es: "+ejecutar.oneSolution().get("X").toString());
-                    compatible1.setText(String.valueOf(ejecutar.oneSolution().get("X").toString()));
-                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("X").toString()));
-                    compatible2.setText(String.valueOf("C°: "+ejecutar1.oneSolution().get("T1").toString()));                                  
-                                       
-                    String path = "/img/on.png";                    
-                    URL url = this.getClass().getResource(path);                       
-                    ImageIcon icon = new ImageIcon(url);                  
-                    offImage.setIcon(icon);               
-                    System.out.println("lechugas"); 
-                 
-
-                case "zanahorias":
-                    System.out.println(" Tu vivero seleccionado es: "+ejecutar.oneSolution().get("Y").toString());
-                    compatible2.setText(String.valueOf(ejecutar.oneSolution().get("Y").toString()));
-                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("Y").toString()));
-                
                 case "repollos":
                     System.out.println(" Tu vivero seleccionado es: "+ejecutar.oneSolution().get("Z").toString());
-                    compatible2.setText(String.valueOf(ejecutar.oneSolution().get("Z").toString()));
-                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("Z").toString()));                       
-            }                   
+                    compatible1.setText(String.valueOf(ejecutar.oneSolution().get("Z").toString()));
+                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("Z").toString()));  
+                    compatible2.setText("C°: "+temperaturaInicial);
+                    compatibleHumedad.setText("H:% "+BHumedad);
+                    ingresarValorTemperatura();
+                    ingresarValorHumedad();
+                    
+                    if(temperaturaInicial >= 25 && BHumedad >=70){          
+                        String path = "/img/on.png";                    
+                        URL url = this.getClass().getResource(path);                       
+                        ImageIcon icon = new ImageIcon(url);                  
+                        offImage.setIcon(icon);
+                        imageHumidificador();                       
+                    }else{
+                        String path1 = "/img/off.png"; 
+                        URL url1 = this.getClass().getResource(path1);
+                        ImageIcon icon1 = new ImageIcon(url1);
+                        offImage.setIcon(icon1);
+                        imageHumidificadorOff();
+                    }
+                    break;
+                      
+                case "zanahorias":
+                    System.out.println(" Tu vivero seleccionado es: "+ejecutar.oneSolution().get("Y").toString());
+                    compatible1.setText(String.valueOf(ejecutar.oneSolution().get("Y").toString()));
+                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("Y").toString()));
+                    compatible2.setText("C°: "+temperaturaInicial);
+                    compatibleHumedad.setText("H:% "+BHumedad);
+                    ingresarValorTemperatura();
+                    ingresarValorHumedad();
+                    
+                     if(temperaturaInicial >= 25 && BHumedad >=70){          
+                        String path = "/img/on.png";                    
+                        URL url = this.getClass().getResource(path);                       
+                        ImageIcon icon = new ImageIcon(url);                  
+                        offImage.setIcon(icon); 
+                        imageHumidificador();                        
+                        
+                    }else{
+                        String path1 = "/img/off.png"; 
+                        URL url1 = this.getClass().getResource(path1);
+                        ImageIcon icon1 = new ImageIcon(url1);
+                        offImage.setIcon(icon1);
+                         imageHumidificadorOff();
+                    }
+                    break;
+                    
+                    case "lechugas":
+                    System.out.println("Tu vivero seleccionado es: "+ejecutar.oneSolution().get("X").toString());
+                    compatible1.setText(String.valueOf(ejecutar.oneSolution().get("X").toString()));
+                    compatible.setText(String.valueOf("La planta: "+ejecutar.oneSolution().get("X").toString()));
+                    compatible2.setText("C°: "+temperaturaInicial);   
+                    compatibleHumedad.setText("H:% "+BHumedad);
+                    ingresarValorTemperatura();
+                    ingresarValorHumedad();
+                    
+                    if(temperaturaInicial >= 25 && BHumedad >=70){          
+                        String path = "/img/on.png";                    
+                        URL url = this.getClass().getResource(path);                       
+                        ImageIcon icon = new ImageIcon(url);                  
+                        offImage.setIcon(icon);                                      
+                        imageHumidificador();
+                        
+                    }else{
+                        String path1 = "/img/off.png"; 
+                        URL url1 = this.getClass().getResource(path1);
+                        ImageIcon icon1 = new ImageIcon(url1);
+                        offImage.setIcon(icon1);
+                        imageHumidificadorOff();
+                    }
+                }
+                           
            }else{
                System.err.println("La planta seleccionada no existe.");
            }
@@ -347,16 +461,12 @@ public class Temperatura extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_enviarActionPerformed
         
     public void getTemperatura(){
         compatible2.getText();
     }
     
-    public void setTemperatura(){
-    
-    }
     private void enviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enviarKeyPressed
 
         char car = evt.getKeyChar();
@@ -379,6 +489,22 @@ public class Temperatura extends javax.swing.JFrame {
     private void compatible1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_compatible1ComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_compatible1ComponentAdded
+
+    private void compatibleHumedadComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_compatibleHumedadComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compatibleHumedadComponentAdded
+    
+    public void ingresarValorTemperatura(){
+        int valor = temperaturaInicial;
+        jProgressBar2.setValue(valor);
+        
+    }
+    
+    public void ingresarValorHumedad(){
+        int valor = BHumedad;
+        jProgressBar5.setValue(valor);
+        
+    }
     
     public int contador = 0;
     public void cambiarImagen(){
@@ -453,27 +579,33 @@ public class Temperatura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel GetTemperatura;
+    private javax.swing.JLabel GetTemperatura1;
     private javax.swing.JLabel Timer;
     private javax.swing.JTextArea compatible;
     private javax.swing.JLabel compatible1;
     private javax.swing.JLabel compatible2;
+    private javax.swing.JLabel compatibleHumedad;
     private javax.swing.JButton enviar;
-    private javax.swing.JProgressBar humedad;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonDetener;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel offImage;
     private javax.swing.JLabel onImage1;

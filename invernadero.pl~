@@ -1,8 +1,8 @@
 
 /*Generalmente, la temperatura mínima requerida para las plantas de invernadero es de 0-10°C, mientras que 30°C podría ser la temperatura máxima.*/
 
-planta(lechugas, zanahorias,repollos).
-mainPlanta:-(planta(X,Y,Z)).
+planta(lechugas, repollos).
+mainPlanta:-(planta(X,Z)).
 
 /*FUNCION VENTILADOR
  * VENTILADOR SOLO FUNCIONA SI LA TEMPERATURA ES ALTA SI LA TEMPERATURA

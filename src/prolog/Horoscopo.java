@@ -317,12 +317,6 @@ public class Horoscopo extends javax.swing.JFrame {
     }//GEN-LAST:event_dimeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   dime o= new dime();
-   o.setBounds(500,100,686,510);
-   o.setVisible(true);
-   this.setVisible(false);
-   o.setResizable(false);
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -336,9 +330,7 @@ public class Horoscopo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-           Todo a = new Todo();
-           a.setBounds(500,100,680,500);
-           a.setVisible(true);
+           
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

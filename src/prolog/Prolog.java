@@ -9,7 +9,7 @@ import org.jpl7.Query;
 
 /**
  *
- * @author Bick
+ * @author Marvinero
  */
 public class Prolog {
 
