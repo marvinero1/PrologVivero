@@ -1,0 +1,81 @@
+/* vivero(planta,DiaIni,MesIni,DiaFin,MesFin,Germinacion,Floracion)
+<- estan en germinacio las plantas entre el DiaIni/MesIni de germinacion y el DiaFin/MesFin
+florecimiento */
+/**/
+
+vivero(lechugas,22,3,27,3,28,3,28,5). /*Germinacion:Dia Inicio 22 Mes inicio Marzo, diaFin27 MesFin Marzo
+Florecimiento: dia: 28 Mes Marzo, diaFin28 Fin Mes: Mayo*/
+vivero(zanahorias,22,3,25,3,26,3,26,6). /*Germinacion: Dia Inicio 22 Mes inicio Marzo, diaFin 25 MesFin Marzo Florecimiento: diaInicio 26 MesInicio Marzo, diaFin 26 mesFin Junio*/
+vivero(repollos,22,3,27,3,28,3,28,6). /*Germincion: Dia Inicio 22 MesInicio Marzo, 27, Florecimiento: diaInicio 28 MesInicio: Marzo diaFin 28 MesFin Junio*/
+vivero(lechugaRomana,22,3,26,3,27,3,28,5). /*Germinacion: Dia Inicio 22 MesInicio Marzo, diaFin: 26, Marzo, FlorecimientodiaInicio:27 mesInicio Marzo diaFin 28 mesFin Mayo */
+
+
+planta(Dia,Mes,Planta) :- vivero(Planta,D1,M1,D11,M11,D2,M2,D22,M22),
+    ((Mes=M1,Mes=M11,Dia>=D1,Dia=<D11) ;(Mes=M2,Mes=M22,Dia>=D2,Dia=<D22)).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+horoscopo3(piscis,"No permitas que habladurías
+y chismes te arruinen el día, recuerda que si hablan
+de ti es porque les molesta lo que proyectas y eres.").
+horoscopo3(acuario,"En el trabajo vienen
+cosas positivas sin embargo si estas en
+espera de mejores ingresos recuerda que quien
+no habla con Dios no lo oye, es momento
+de buscar mejores oportunidades").
+horoscopo3(capricornio,"Tienes ciertos problemas con tu pasado
+que te detienen y te hacen dudar hasta de tu nombre,
+    no seas tan desconfiado y vive tu vida").
+horoscopo3(sagitario,"Se alejara de ti una persona
+muy importante que te movía, no detengas
+a ese ser o solo te expondrás a que si
+se queda haga de ti lo que le de su gana").
+horoscopo3(escorpio,"Un ex pareja
+te ha recordado mucho son embargo teme
+acercarse a ti, el karma le ha dado buenas lecciones").
+horoscopo3(libra,"No temas a cambios
+en tu vida pues te llevarán a mejorar eb muchos aspectos,
+recuerda que nuevos cambios
+ traerán consigo nuevas oportunidades").
+horoscopo3(virgo,"Vienen cambios importantes en tu
+vida entre ellos la oportunidad de dejar ir todo y deshacerte
+de todo eso que te ha impedido seguir avanzando").
+horoscopo3(leo,"Es momento que dejes de ser tan débil
+y pienses más en lo que puedes obtener, échale muchas
+ganas a proyectos pues sueles dejar muchas cosas inconclusas").
+horoscopo3(cancer,"No caigas en provocaciones tontas
+pues este fin de semana andarás algo bipolar y cambiante
+en tu carácter, pero esi se debe a ciertas
+situaciones que te tienen algo nervios@").
+horoscopo3(geminis,"No eres mal@, pero cuando
+te buscan te encuentran, el amor quizás no se
+ha hecho para ti en estos momentos, pero una cosa
+es cierta, cuando dejes de buscarlo y obsesionarte
+con él llegará a tu vida").
+horoscopo3(tauro,"Deja de pensar en tu pasado y
+ve por tu presente que lo has descuidado mucho
+por quien no merece ni un segundo de tu atención").
+horoscopo3(aries,"No te atontes di lo que sientes
+y ve por lo que necesitas, que te valgan comentarios
+tontos de gente imbecil que solo busca lastimarte
+o hacerte daño, sabes lo perr@ que
+puedes ser cuando te lo propones").
+
+prueba2(X,Y):-horoscopo3(X,Y).
+
+main(Dia,Mes,Signo,Y,Z,A):-signo(Dia,Mes,Signo),prueba(Y,Signo,Z),prueba2(Signo,A).
+main2:-findall(X,Y,Z,horoscopo2(X,Y,Z)).
