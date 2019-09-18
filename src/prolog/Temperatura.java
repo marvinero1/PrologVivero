@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package prolog;
 
 import java.awt.Image;
@@ -10,6 +5,7 @@ import java.awt.Toolkit;
 import java.net.URL;
 import java.util.TimerTask;
 import java.util.Timer;
+import javax.swing.DefaultComboBoxModel;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
 //import java.net.URL;
@@ -22,14 +18,35 @@ import org.jpl7.Query;
  *
  * @author Marvinero
  */
+
 public class Temperatura extends javax.swing.JFrame {  
     private JLabel etiqueta;  
     /**
-     * Creates new form Todo
-     */
+    * Creates new form Todo
+    * 24
+    * 30
+    */
  
     Timer t;
-    int k = 0;
+    int k = 0;  
+    
+    public int temperaturaInicial = 24;
+    public int BHumedad = 30;
+    
+    /**
+    * Vivero adecuado off
+    * Humedad 50-100 adecuado
+    * Temperatura 5-30 adecuado
+    * 
+    */
+    
+     /**
+    * Vivero adecuado on
+    * Humedad 0-49 no adecuado, necesita mas humedad
+    * Temperatura 5-30 no adecuado, necesita mas calor 
+    * 
+    */
+    
     
     public Temperatura() {
         initComponents();
@@ -37,7 +54,8 @@ public class Temperatura extends javax.swing.JFrame {
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icono.jpg"));
         setIconImage(icon); 
         setSize(1000, 730);
-        //setLocationRelativeTo(this);
+        cargarPlanta();
+        //setLocationRelativeTo(this);            
     }
 
     /**
@@ -65,7 +83,6 @@ public class Temperatura extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         Timer = new javax.swing.JLabel();
         jButtonDetener = new javax.swing.JButton();
-        signo2 = new javax.swing.JFormattedTextField();
         enviar = new javax.swing.JButton();
         compatible2 = new javax.swing.JLabel();
         offImage = new javax.swing.JLabel();
@@ -83,8 +100,10 @@ public class Temperatura extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         compatibleHumedad = new javax.swing.JLabel();
+        signo2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         setSize(new java.awt.Dimension(550, 600));
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
@@ -103,7 +122,7 @@ public class Temperatura extends javax.swing.JFrame {
         jLabel4.setBounds(230, 260, 150, 40);
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 2, 18)); // NOI18N
-        jLabel6.setText("Ingrese el nombre de la parcela:");
+        jLabel6.setText("Seleccione nombre de la parcela");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(680, 10, 280, 40);
 
@@ -177,7 +196,7 @@ public class Temperatura extends javax.swing.JFrame {
         Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Timer.setText("Temporizador");
         getContentPane().add(Timer);
-        Timer.setBounds(690, 620, 130, 40);
+        Timer.setBounds(760, 570, 130, 40);
 
         jButtonDetener.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonDetener.setForeground(new java.awt.Color(204, 0, 51));
@@ -189,15 +208,7 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonDetener);
-        jButtonDetener.setBounds(840, 630, 90, 30);
-
-        signo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signo2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(signo2);
-        signo2.setBounds(700, 60, 240, 40);
+        jButtonDetener.setBounds(780, 630, 90, 30);
 
         enviar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         enviar.setText("Enviar");
@@ -212,7 +223,7 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(enviar);
-        enviar.setBounds(770, 120, 90, 27);
+        enviar.setBounds(770, 110, 90, 27);
 
         compatible2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         compatible2.setForeground(new java.awt.Color(51, 51, 51));
@@ -223,29 +234,29 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(compatible2);
-        compatible2.setBounds(790, 260, 80, 40);
+        compatible2.setBounds(790, 250, 80, 40);
 
         offImage.setText("        Medidor");
         getContentPane().add(offImage);
-        offImage.setBounds(720, 420, 80, 150);
+        offImage.setBounds(850, 400, 80, 150);
 
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 0));
         jLabel11.setText("Planta Seleccionada");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(750, 150, 140, 40);
+        jLabel11.setBounds(750, 140, 140, 40);
 
         GetTemperatura.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         GetTemperatura.setForeground(new java.awt.Color(0, 153, 0));
         GetTemperatura.setText("Humedad Vivero");
         getContentPane().add(GetTemperatura);
-        GetTemperatura.setBounds(760, 290, 120, 40);
+        GetTemperatura.setBounds(760, 280, 120, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
         jLabel3.setText("Humidificadores");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(840, 380, 110, 20);
+        jLabel3.setBounds(840, 370, 110, 20);
 
         compatible1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         compatible1.setForeground(new java.awt.Color(51, 51, 51));
@@ -256,23 +267,23 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(compatible1);
-        compatible1.setBounds(740, 190, 160, 40);
+        compatible1.setBounds(740, 180, 160, 40);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 102, 51));
         jLabel12.setText("Ventiladores");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(720, 380, 80, 20);
+        jLabel12.setBounds(720, 370, 80, 20);
 
         onImage1.setText("     Medidor");
         getContentPane().add(onImage1);
-        onImage1.setBounds(850, 420, 70, 150);
+        onImage1.setBounds(730, 400, 70, 150);
 
         GetTemperatura1.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         GetTemperatura1.setForeground(new java.awt.Color(0, 153, 0));
         GetTemperatura1.setText("Temperatura Vivero");
         getContentPane().add(GetTemperatura1);
-        GetTemperatura1.setBounds(750, 230, 140, 40);
+        GetTemperatura1.setBounds(750, 220, 140, 40);
 
         jLabel13.setText("0");
         getContentPane().add(jLabel13);
@@ -312,12 +323,25 @@ public class Temperatura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(compatibleHumedad);
-        compatibleHumedad.setBounds(790, 330, 60, 40);
+        compatibleHumedad.setBounds(790, 320, 60, 40);
+
+        signo2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        getContentPane().add(signo2);
+        signo2.setBounds(710, 60, 210, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-      
+    DefaultComboBoxModel modeloPlanta;
+    
+    public final void cargarPlanta(){
+        String [] planta= {"lechugas","zanahorias","repollos"};
+        modeloPlanta = new DefaultComboBoxModel(planta);
+        signo2.setModel(modeloPlanta);
+        
+        String plant = signo2.getSelectedItem().toString();
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
            Vivero a = new Vivero();
@@ -325,7 +349,6 @@ public class Temperatura extends javax.swing.JFrame {
            a.setVisible(true);
            a.setResizable(false);
            this.setVisible(false);
-
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -340,28 +363,39 @@ public class Temperatura extends javax.swing.JFrame {
     private void jButtonDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerActionPerformed
         //t.stop();
     }//GEN-LAST:event_jButtonDetenerActionPerformed
-    
-    
+     
     public void imageHumidificador(){
-        String path = "/img/on.png";                    
+        if(BHumedad <= 20){
+           String path = "/img/on.png";                    
         URL url = this.getClass().getResource(path);                       
         ImageIcon icon = new ImageIcon(url);                  
-        onImage1.setIcon(icon);
-    }
-    
-    public void imageHumidificadorOff(){
-        String path1 = "/img/off.png"; 
+        onImage1.setIcon(icon); 
+        }else{
+            String path1 = "/img/off.png"; 
         URL url1 = this.getClass().getResource(path1);
         ImageIcon icon1 = new ImageIcon(url1);
         onImage1.setIcon(icon1);
+        }      
+    }
+    
+    public void imageTemperatura(){
+        if(temperaturaInicial >= 30){
+           String path = "/img/on.png";                    
+        URL url = this.getClass().getResource(path);                       
+        ImageIcon icon = new ImageIcon(url);                  
+        onImage1.setIcon(icon); 
+        }else{
+            String path1 = "/img/off.png"; 
+        URL url1 = this.getClass().getResource(path1);
+        ImageIcon icon1 = new ImageIcon(url1);
+        onImage1.setIcon(icon1);
+        }
     }
        
-    public int temperaturaInicial = 7;
-    public int BHumedad = 69;
-    
+       
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
 
-        String planta = String.valueOf(signo2.getText());       
+        String planta = String.valueOf(signo2.getSelectedItem().toString());       
      
         try {
             String conexion = "consult('invernadero.pl')";
@@ -378,7 +412,7 @@ public class Temperatura extends javax.swing.JFrame {
             
             
             if (ejecutar.hasSolution()){
-                switch(signo2.getText()){
+                switch(signo2.getSelectedItem().toString()){
                     
                 case "repollos":
                     System.out.println(" Tu vivero seleccionado es: "+ejecutar.oneSolution().get("Z").toString());
@@ -389,18 +423,19 @@ public class Temperatura extends javax.swing.JFrame {
                     ingresarValorTemperatura();
                     ingresarValorHumedad();
                     
-                    if(temperaturaInicial >= 25 && BHumedad >=70){          
+                    if( BHumedad <= 40){ 
+                        imageHumidificador(); 
                         String path = "/img/on.png";                    
                         URL url = this.getClass().getResource(path);                       
                         ImageIcon icon = new ImageIcon(url);                  
                         offImage.setIcon(icon);
-                        imageHumidificador();                       
+                                              
                     }else{
                         String path1 = "/img/off.png"; 
                         URL url1 = this.getClass().getResource(path1);
                         ImageIcon icon1 = new ImageIcon(url1);
                         offImage.setIcon(icon1);
-                        imageHumidificadorOff();
+                        
                     }
                     break;
                       
@@ -413,19 +448,18 @@ public class Temperatura extends javax.swing.JFrame {
                     ingresarValorTemperatura();
                     ingresarValorHumedad();
                     
-                     if(temperaturaInicial >= 25 && BHumedad >=70){          
+                     if(temperaturaInicial >= 30 && BHumedad <= 40){
+                        
                         String path = "/img/on.png";                    
                         URL url = this.getClass().getResource(path);                       
                         ImageIcon icon = new ImageIcon(url);                  
-                        offImage.setIcon(icon); 
-                        imageHumidificador();                        
-                        
+                        offImage.setIcon(icon);                                                                     
                     }else{
                         String path1 = "/img/off.png"; 
                         URL url1 = this.getClass().getResource(path1);
                         ImageIcon icon1 = new ImageIcon(url1);
                         offImage.setIcon(icon1);
-                         imageHumidificadorOff();
+                         
                     }
                     break;
                     
@@ -438,22 +472,21 @@ public class Temperatura extends javax.swing.JFrame {
                     ingresarValorTemperatura();
                     ingresarValorHumedad();
                     
-                    if(temperaturaInicial >= 25 && BHumedad >=70){          
+                    if(temperaturaInicial >= 30 && BHumedad <= 40){   
+                        imageHumidificador();
                         String path = "/img/on.png";                    
                         URL url = this.getClass().getResource(path);                       
                         ImageIcon icon = new ImageIcon(url);                  
-                        offImage.setIcon(icon);                                      
-                        imageHumidificador();
+                        offImage.setIcon(icon);                                                              
                         
                     }else{
                         String path1 = "/img/off.png"; 
                         URL url1 = this.getClass().getResource(path1);
                         ImageIcon icon1 = new ImageIcon(url1);
                         offImage.setIcon(icon1);
-                        imageHumidificadorOff();
+                        imageTemperatura();
                     }
-                }
-                           
+                }                           
            }else{
                System.err.println("La planta seleccionada no existe.");
            }
@@ -481,10 +514,6 @@ public class Temperatura extends javax.swing.JFrame {
     private void compatible2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_compatible2ComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_compatible2ComponentAdded
-
-    private void signo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signo2ActionPerformed
 
     private void compatible1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_compatible1ComponentAdded
         // TODO add your handling code here:
@@ -611,6 +640,6 @@ public class Temperatura extends javax.swing.JFrame {
     private javax.swing.JLabel onImage1;
     private javax.swing.JLabel resultado;
     private javax.swing.JLabel resultado3;
-    private javax.swing.JFormattedTextField signo2;
+    private javax.swing.JComboBox<String> signo2;
     // End of variables declaration//GEN-END:variables
 }

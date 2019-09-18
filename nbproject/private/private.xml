@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/L:/PrologVivero/src/prolog/Interfaz.java</file>
             <file>file:/L:/PrologVivero/src/prolog/Temperatura.java</file>
-            <file>file:/L:/PrologVivero/src/prolog/Horoscopo.java</file>
+            <file>file:/L:/PrologVivero/src/prolog/Vivero.java</file>
+            <file>file:/L:/PrologVivero/src/prolog/Prolog.java</file>
+            <file>file:/L:/PrologVivero/src/prolog/Humedad.java</file>
         </group>
     </open-files>
 </project-private>

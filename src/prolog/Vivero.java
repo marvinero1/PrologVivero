@@ -22,7 +22,7 @@ public class Vivero extends javax.swing.JFrame {
     public Vivero() {
         initComponents();
         setTitle("Vivero Inteligente");
-        setSize(640, 430);
+        setSize(940, 430);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icono.jpg"));
         setIconImage(icon);
     }
@@ -40,16 +40,22 @@ public class Vivero extends javax.swing.JFrame {
         dime = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         img = new javax.swing.JLabel();
-        resultado1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(153, 153, 153));
         setSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(null);
 
-        dime.setBackground(new java.awt.Color(102, 255, 255));
+        dime.setBackground(new java.awt.Color(0, 153, 51));
         dime.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         dime.setText("Mis plantas");
         dime.addActionListener(new java.awt.event.ActionListener() {
@@ -58,9 +64,9 @@ public class Vivero extends javax.swing.JFrame {
             }
         });
         getContentPane().add(dime);
-        dime.setBounds(360, 230, 220, 40);
+        dime.setBounds(670, 290, 220, 40);
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 255));
+        jButton3.setBackground(new java.awt.Color(0, 153, 51));
         jButton3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jButton3.setText("Control Invernadero");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -69,24 +75,55 @@ public class Vivero extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(20, 230, 230, 40);
+        jButton3.setBounds(380, 290, 230, 40);
 
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/drone_invernadero.jpg"))); // NOI18N
         img.setMaximumSize(new java.awt.Dimension(673, 420));
         img.setPreferredSize(new java.awt.Dimension(673, 420));
         getContentPane().add(img);
-        img.setBounds(0, 0, 630, 390);
+        img.setBounds(320, 0, 600, 390);
 
-        resultado1.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
-        resultado1.setForeground(new java.awt.Color(255, 255, 255));
-        resultado1.setText("Signo");
-        resultado1.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                resultado1ComponentAdded(evt);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(120, 10, 100, 140);
+
+        jLabel1.setFont(new java.awt.Font("Gill Sans Ultra Bold", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel1.setText("ECO-DRUID");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(40, 200, 280, 70);
+
+        jLabel3.setFont(new java.awt.Font("Gill Sans Ultra Bold", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel3.setText("BIENVENIDO");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(70, 160, 200, 40);
+
+        jLabel4.setText("Nero-soft.net Copyright © 2019");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(80, 370, 190, 14);
+
+        jButton4.setBackground(new java.awt.Color(51, 204, 0));
+        jButton4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jButton4.setText("Registrarse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(resultado1);
-        resultado1.setBounds(250, 330, 300, 40);
+        getContentPane().add(jButton4);
+        jButton4.setBounds(60, 320, 220, 30);
+
+        jButton5.setBackground(new java.awt.Color(0, 153, 51));
+        jButton5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jButton5.setText("Ingresar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(60, 270, 220, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -98,15 +135,19 @@ public class Vivero extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
            Temperatura a = new Temperatura();
-           a.setBounds(500,100,680,500);
+           
            a.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void resultado1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_resultado1ComponentAdded
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resultado1ComponentAdded
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,7 +189,12 @@ public class Vivero extends javax.swing.JFrame {
     private javax.swing.JButton dime;
     private javax.swing.JLabel img;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private java.awt.PopupMenu popupMenu1;
-    private javax.swing.JLabel resultado1;
     // End of variables declaration//GEN-END:variables
 }
